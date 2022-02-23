@@ -9,7 +9,7 @@ class PagesController < ApplicationController
     #
   end
 
-  def market
+  def account
     #
   end
 end
