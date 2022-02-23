@@ -5,6 +5,7 @@ class CreateTransactions < ActiveRecord::Migration[6.1]
       t.float :amount
       t.string :stock
       t.float :quantity
+      t.float :price
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
