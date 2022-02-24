@@ -15,14 +15,6 @@ ActiveRecord::Schema.define(version: 2022_02_23_150425) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "markets", force: :cascade do |t|
-    t.string "stock"
-    t.float "price"
-    t.string "company"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "stocks", force: :cascade do |t|
     t.string "symbol"
     t.float "price"
