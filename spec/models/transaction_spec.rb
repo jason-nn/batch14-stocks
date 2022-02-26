@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Transaction, type: :model do
+RSpec.describe 'Transaction Model Spec', type: :model do
   before :each do
     @user = create(:user)
   end

@@ -17,4 +17,8 @@ Rails.application.routes.draw do
   post '/users/create', to: 'users#create', as: 'create_user'
   patch '/users/:id/update', to: 'users#update', as: 'update_user'
   patch '/users/:id/approve', to: 'users#approve', as: 'approve_user'
+
+  get '/stocks', to: 'stocks#index', as: 'stocks'
+  post '/stocks/create', to: 'stocks#create', as: 'create_stock'
+  patch '/stocks/:id/update', to: 'stocks#update', as: 'update_stock'
 end
