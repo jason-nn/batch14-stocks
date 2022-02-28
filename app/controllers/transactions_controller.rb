@@ -1,12 +1,11 @@
 class TransactionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user
 
   def index
-    if @user.admin
+    if current_user.admin
       @transactions = Transaction.all
     else
-      @transactions = Transaction.where(user_id: @user.id)
+      @transactions = Transaction.where(user_id: current_user.id)
     end
   end
 
@@ -26,10 +25,6 @@ class TransactionsController < ApplicationController
 
   def transaction_params
     params.require(:transaction).permit(:action, :amount)
-  end
-
-  def set_user
-    @user = current_user
   end
 
   def set_portfolio

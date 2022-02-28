@@ -1,11 +1,17 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!, except: %i[home]
-  before_action :set_user
   before_action :set_portfolio, only: %i[portfolio]
   before_action :set_balance, only: %i[account]
 
   def home
     #
+    if user_signed_in?
+      if current_user.admin
+        redirect_to users_path
+      else
+        redirect_to stocks_path
+      end
+    end
   end
 
   def portfolio
@@ -17,10 +23,6 @@ class PagesController < ApplicationController
   end
 
   private
-
-  def set_user
-    @user = current_user
-  end
 
   def set_portfolio
     portfolio = {}
