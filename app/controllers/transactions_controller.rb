@@ -10,7 +10,18 @@ class TransactionsController < ApplicationController
   end
 
   def cashin
-    #
+    @transaction = current_user.transactions.new
+  end
+
+  def cashin_post
+    @transaction =
+      current_user.transactions.new(transaction_params.merge(action: 'cash in'))
+
+    if @transaction.save
+      redirect_to account_path, notice: 'Successfully cashed in'
+    else
+      render :cashin
+    end
   end
 
   def buy

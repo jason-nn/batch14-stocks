@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   get '/account', to: 'pages#account', as: 'account'
 
   get '/transactions', to: 'transactions#index', as: 'transactions'
-  post '/cashin', to: 'transactions#cashin', as: 'cashin'
+  get '/cashin', to: 'transactions#cashin', as: 'cashin'
+  post '/cashin', to: 'transactions#cashin_post', as: 'cashin_post'
   post '/buy', to: 'transactions#buy', as: 'buy'
   post '/sell', to: 'transactions#sell', as: 'sell'
 
