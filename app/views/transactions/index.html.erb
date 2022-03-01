@@ -23,13 +23,15 @@
         <%= number_to_currency transaction.amount %>
       </td>
       <td>
-        <%= transaction.stock %>
+        <% if transaction.stock_id %>
+          <%= Stock.find(transaction.stock_id).symbol %>
+        <% end %>
       </td>
       <td>
         <%= transaction.quantity %>
       </td>
       <td>
-        <%= transaction.price %>
+        <%= number_to_currency transaction.price %>
       </td>
     </div>
   <% end %>

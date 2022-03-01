@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2022_02_23_150425) do
   create_table "transactions", force: :cascade do |t|
     t.string "action"
     t.float "amount"
-    t.string "stock"
+    t.bigint "stock_id"
     t.float "quantity"
     t.float "price"
     t.bigint "user_id", null: false

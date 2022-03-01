@@ -63,3 +63,5 @@ end
 gem 'rails-controller-testing'
 
 gem 'devise'
+
+gem 'iex-ruby-client'

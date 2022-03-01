@@ -29,10 +29,11 @@ class PagesController < ApplicationController
 
     transactions = Transaction.where(user_id: current_user.id)
     transactions.each do |transaction|
-      portfolio[transaction.stock] = 0 if !portfolio[transaction.stock]
-      portfolio[transaction.stock] += transaction.quantity if transaction
+      portfolio[transaction.stock_id] = 0 if !portfolio[transaction.stock_id] &&
+        transaction.action != 'cash in'
+      portfolio[transaction.stock_id] += transaction.quantity if transaction
         .action == 'purchase'
-      portfolio[transaction.stock] -= transaction.quantity if transaction
+      portfolio[transaction.stock_id] -= transaction.quantity if transaction
         .action == 'sale'
     end
 
