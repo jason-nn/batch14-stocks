@@ -28,8 +28,9 @@ class TransactionsController < ApplicationController
 
   def buy
     stock = Stock.find(params[:id])
-    amount = stock.price * params[:transaction][:quantity].to_i
-    if amount < @balance
+    quantity = params[:transaction][:quantity].to_i
+    amount = stock.price * quantity
+    if quantity && amount < @balance
       @transaction =
         current_user.transactions.new(
           transaction_params.merge(
@@ -54,7 +55,7 @@ class TransactionsController < ApplicationController
     stock = Stock.find(params[:id])
     quantity = params[:transaction][:quantity].to_i
     amount = stock.price * quantity
-    if @portfolio[stock.id] && @portfolio[stock.id] > quantity
+    if quantity && @portfolio[stock.id] && @portfolio[stock.id] > quantity
       @transaction =
         current_user.transactions.new(
           transaction_params.merge(
