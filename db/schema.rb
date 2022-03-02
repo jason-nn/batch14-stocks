@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_23_150425) do
+ActiveRecord::Schema.define(version: 2022_03_02_112425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,12 +26,12 @@ ActiveRecord::Schema.define(version: 2022_02_23_150425) do
   create_table "transactions", force: :cascade do |t|
     t.string "action"
     t.float "amount"
-    t.bigint "stock_id"
     t.float "quantity"
     t.float "price"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "stock_id"
     t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 

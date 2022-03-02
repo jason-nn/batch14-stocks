@@ -3,7 +3,7 @@ class CreateTransactions < ActiveRecord::Migration[6.1]
     create_table :transactions do |t|
       t.string :action
       t.float :amount
-      t.bigint :stock_id
+      t.string :stock
       t.float :quantity
       t.float :price
       t.references :user, null: false, foreign_key: true
