@@ -6,9 +6,10 @@ Rails.application.routes.draw do
   get '/account', to: 'pages#account', as: 'account'
 
   get '/transactions', to: 'transactions#index', as: 'transactions'
-  post '/cashin', to: 'transactions#cashin', as: 'cashin'
-  post '/buy', to: 'transactions#buy', as: 'buy'
-  post '/sell', to: 'transactions#sell', as: 'sell'
+  get '/cashin', to: 'transactions#cashin', as: 'cashin'
+  post '/cashin', to: 'transactions#cashin_post', as: 'cashin_post'
+  post '/buy/:id', to: 'transactions#buy', as: 'buy'
+  post '/sell/:id', to: 'transactions#sell', as: 'sell'
 
   get '/users', to: 'users#index', as: 'users'
   get '/users/:id', to: 'users#show', as: 'user'
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
   patch '/users/:id/approve', to: 'users#approve', as: 'approve_user'
 
   get '/stocks', to: 'stocks#index', as: 'stocks'
+  get '/stock/:id', to: 'stocks#show', as: 'stock'
   post '/stocks/create', to: 'stocks#create', as: 'create_stock'
   patch '/stocks/:id/update', to: 'stocks#update', as: 'update_stock'
 end

@@ -35,7 +35,8 @@ class UsersController < ApplicationController
     redirect_to users_path, notice: @user.username + ' has been approved!'
   end
 
-  private 
+  private
+
   def user_params
     params.require(:user).permit(:name, :surname, :username, :email, :password)
   end

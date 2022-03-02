@@ -1,1 +1,20 @@
-
+<table>
+  <tr>
+    <th>
+      Stock
+    </th>
+    <th>
+      Quantity
+    </th>
+  </tr>
+  <% @portfolio.keys.each do |key| %>
+    <tr>
+      <td>
+        <%= Stock.find(key).symbol %>
+      </td>
+      <td>
+        <%= @portfolio[key] %>
+      </td>
+    </tr>
+  <% end %>
+</table>

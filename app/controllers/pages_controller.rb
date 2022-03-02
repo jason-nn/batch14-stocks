@@ -1,11 +1,17 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!, except: %i[home]
-  before_action :set_user
   before_action :set_portfolio, only: %i[portfolio]
   before_action :set_balance, only: %i[account]
 
   def home
     #
+    if user_signed_in?
+      if current_user.admin
+        redirect_to users_path
+      else
+        redirect_to stocks_path
+      end
+    end
   end
 
   def portfolio
@@ -18,19 +24,16 @@ class PagesController < ApplicationController
 
   private
 
-  def set_user
-    @user = current_user
-  end
-
   def set_portfolio
     portfolio = {}
 
     transactions = Transaction.where(user_id: current_user.id)
     transactions.each do |transaction|
-      portfolio[transaction.stock] = 0 if !portfolio[transaction.stock]
-      portfolio[transaction.stock] += transaction.quantity if transaction
+      portfolio[transaction.stock_id] = 0 if !portfolio[transaction.stock_id] &&
+        transaction.action != 'cash in'
+      portfolio[transaction.stock_id] += transaction.quantity if transaction
         .action == 'purchase'
-      portfolio[transaction.stock] -= transaction.quantity if transaction
+      portfolio[transaction.stock_id] -= transaction.quantity if transaction
         .action == 'sale'
     end
 

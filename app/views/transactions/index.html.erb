@@ -1,1 +1,38 @@
-
+<table>
+  <tr>
+    <% if current_user.admin %>
+      <th>User</th>
+    <% end %>
+    <th>Action</th>
+    <th>Amount</th>
+    <th>Stock</th>
+    <th>Quantity</th>
+    <th>Price</th>
+  </tr>
+  <% @transactions.each do |transaction| %>
+    <tr>
+      <% if current_user.admin %>
+        <td>
+          <%= "#{transaction.user.name} #{transaction.user.surname}" %>
+        </td>
+      <% end %>
+      <td>
+        <%= transaction.action %>
+      </td>
+      <td>
+        <%= number_to_currency transaction.amount %>
+      </td>
+      <td>
+        <% if transaction.stock_id %>
+          <%= Stock.find(transaction.stock_id).symbol %>
+        <% end %>
+      </td>
+      <td>
+        <%= transaction.quantity %>
+      </td>
+      <td>
+        <%= number_to_currency transaction.price %>
+      </td>
+    </div>
+  <% end %>
+</table>

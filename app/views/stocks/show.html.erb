@@ -1,0 +1,38 @@
+<h2>Price: <%= number_to_currency @stock.price %></h2>
+<h3>Buy</h3>
+<%= form_with model: current_user.transactions.new, url: buy_path(@stock.id) do |f| %>
+  <%= f.label :quantity %>
+  <br>
+  <br>
+  <%= f.number_field :quantity %>
+  <br>
+  <% current_user.transactions.new.errors.full_messages_for(:quantity).each do |message| %>
+    <div>
+      <%= message %>
+    </div>
+  <% end %>
+  <br>
+  <%= f.submit 'Buy stock' %>
+<% end %>
+<br>
+<br>
+<br>
+<h3>Sell</h3>
+<%= form_with model: current_user.transactions.new, url: sell_path(@stock.id) do |f| %>
+  <%= f.label :quantity %>
+  <br>
+  <br>
+  <%= f.number_field :quantity %>
+  <br>
+  <% current_user.transactions.new.errors.full_messages_for(:quantity).each do |message| %>
+    <div>
+      <%= message %>
+    </div>
+  <% end %>
+  <br>
+  <%= f.submit 'Sell stock' %>
+<% end %>
+<br>
+<br>
+<br>
+<%= link_to 'Back', stocks_path %>
