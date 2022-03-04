@@ -17,6 +17,7 @@ admin =
     email: 'jason@admin.com',
     password: 'password',
     admin: true,
+    approved: true,
   )
 
 jason =
@@ -26,6 +27,7 @@ jason =
     email: 'jason.ho@obf.ateneo.edu',
     password: 'password',
     admin: false,
+    approved: true,
   )
 
 stocks = client.stock_market_list(:mostactive)
