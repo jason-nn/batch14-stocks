@@ -8,4 +8,6 @@ class User < ApplicationRecord
          :validatable
 
   has_many :transactions, dependent: :destroy
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 end

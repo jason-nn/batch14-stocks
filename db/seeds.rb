@@ -10,10 +10,19 @@ require './services/iex_service_object.rb'
 
 client = IEXServiceObject.new.client
 
-admin = User.create(email: 'jason@admin.com', password: 'password', admin: true)
+admin =
+  User.create(
+    first_name: 'Jason',
+    last_name: 'Admin',
+    email: 'jason@admin.com',
+    password: 'password',
+    admin: true,
+  )
 
 jason =
   User.create(
+    first_name: 'Jason',
+    last_name: 'Ho',
     email: 'jason.ho@obf.ateneo.edu',
     password: 'password',
     admin: false,

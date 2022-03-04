@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @user = User.all
+    @users = User.all
   end
 
   def show
@@ -15,6 +15,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
+    if @user.save
+      redirect_to users_path, notice: 'Created new user'
+    else
+      render :new
+    end
   end
 
   def edit
@@ -23,7 +29,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to users_path, notice: @user.username + ' has been updated!'
+      redirect_to users_path, notice: 'Updated user'
     else
       render :edit
     end
@@ -32,12 +38,12 @@ class UsersController < ApplicationController
   def approve
     @user = User.find(params[:id])
     @user.update(approved: true)
-    redirect_to users_path, notice: @user.username + ' has been approved!'
+    redirect_to users_path, notice: 'Approved user'
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :surname, :username, :email, :password)
+    params.require(:user).permit(:name, :surname, :email, :password)
   end
 end
