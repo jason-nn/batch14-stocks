@@ -20,7 +20,9 @@
         <%= link_to 'Edit', edit_user_path(user) %>
       </td>
       <td>
-        <%= link_to 'Approve', approve_user_path(user), method: 'patch' %>
+        <% if !user.approved %>
+          <%= link_to 'Approve', approve_user_path(user), method: 'patch' %>
+        <% end %>
       </td>
     </tr>
   <% end %>

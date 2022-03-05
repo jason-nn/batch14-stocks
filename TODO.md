@@ -1,6 +1,6 @@
 # TO DO
 
-- [ ] create user
+- [x] create user
 - [ ] update user
 - [ ] finish admin side functionality
 - [ ] restrict access to admin pages if user is not admin
