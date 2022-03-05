@@ -14,4 +14,14 @@ class ApplicationController < ActionController::Base
       u.permit(:email, :password, :first_name, :last_name)
     end
   end
+
+  private
+
+  def admin_only
+    redirect_to stocks_path if !current_user.admin
+  end
+
+  def trader_only
+    redirect_to users_path if current_user.admin
+  end
 end

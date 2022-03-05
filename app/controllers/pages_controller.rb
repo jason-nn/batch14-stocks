@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   before_action :authenticate_user!, except: %i[home]
   before_action :set_portfolio, only: %i[portfolio]
   before_action :set_balance, only: %i[account]
+  before_action :trader_only, except: %i[home]
 
   def home
     #
