@@ -28,7 +28,16 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
+    @user = User.find(params[:id])
+    params = user_params.clone
+
+    if params[:password].length == 0 &&
+         params[:password_confirmation].length == 0
+      params[:password] = @user.password
+      params[:password_confirmation] = @user.password
+    end
+
+    if @user.update(params)
       redirect_to users_path, notice: 'Updated user'
     else
       render :edit
