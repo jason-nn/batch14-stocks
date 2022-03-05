@@ -1,4 +1,6 @@
 class StocksController < ApplicationController
+  before_action :approved_only
+
   def index
     @stocks = Stock.all
   end

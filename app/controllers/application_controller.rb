@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
@@ -23,5 +22,9 @@ class ApplicationController < ActionController::Base
 
   def trader_only
     redirect_to users_path if current_user.admin
+  end
+
+  def approved_only
+    redirect_to blocked_path if !current_user.approved
   end
 end

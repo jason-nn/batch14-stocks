@@ -3,6 +3,7 @@ class TransactionsController < ApplicationController
   before_action :set_balance, only: %i[buy]
   before_action :set_portfolio, only: %i[sell]
   before_action :trader_only, except: %i[index]
+  before_action :approved_only
 
   def index
     if current_user.admin

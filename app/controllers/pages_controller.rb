@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   before_action :set_portfolio, only: %i[portfolio]
   before_action :set_balance, only: %i[account]
   before_action :trader_only, except: %i[home]
+  before_action :approved_only, except: %i[home blocked]
 
   def home
     #
@@ -20,6 +21,10 @@ class PagesController < ApplicationController
   end
 
   def account
+    #
+  end
+
+  def blocked
     #
   end
 

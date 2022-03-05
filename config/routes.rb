@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   get '/portfolio', to: 'pages#portfolio', as: 'portfolio'
   get '/account', to: 'pages#account', as: 'account'
+  get '/blocked', to: 'pages#blocked', as: 'blocked'
 
   get '/transactions', to: 'transactions#index', as: 'transactions'
   get '/cashin', to: 'transactions#cashin', as: 'cashin'
