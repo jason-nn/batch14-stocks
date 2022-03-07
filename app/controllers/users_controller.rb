@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params.merge(approved: true))
 
     if @user.save
+      UserMailer.with(user: @user).welcome_email.deliver_later
       redirect_to users_path, notice: 'Created new user'
     else
       render :new
@@ -49,6 +50,7 @@ class UsersController < ApplicationController
   def approve
     @user = User.find(params[:id])
     @user.update(approved: true)
+    UserMailer.with(user: @user).approved_email.deliver_later
     redirect_to users_path, notice: 'Approved user'
   end
 
