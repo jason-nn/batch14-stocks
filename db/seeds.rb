@@ -20,15 +20,15 @@ admin =
     approved: true,
   )
 
-jason =
-  User.create(
-    first_name: 'Jason',
-    last_name: 'Ho',
-    email: 'jason.ho@obf.ateneo.edu',
-    password: 'password',
-    admin: false,
-    approved: true,
-  )
+# jason =
+#   User.create(
+#     first_name: 'Jason',
+#     last_name: 'Ho',
+#     email: 'jason.ho@obf.ateneo.edu',
+#     password: 'password',
+#     admin: false,
+#     approved: true,
+#   )
 
 stocks = client.stock_market_list(:mostactive)
 
