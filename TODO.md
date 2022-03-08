@@ -11,5 +11,5 @@
 - [x] hide gmail credentials
 - [x] set up heroku domain (remove old stock app on heroku first)
 - [x] set up config/production.rb
-- [ ] add email send on registration from devise (after save in model)
+- [x] add email send on registration from devise (after save in user model)
 - [ ] add css
