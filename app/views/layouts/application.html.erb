@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Batch14Stocks</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>stocks</title>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -10,18 +10,9 @@
   </head>
   <body>
     <%= render 'layouts/navbar' %>
-    <%= yield %>
-    <% if notice %>
-      <br>
-      <br>
-      <br>
-      <p class="notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <br>
-      <br>
-      <br>
-      <p class="alert"><%= alert %></p>
-    <% end %>
+    <div class='body'>
+      <%= yield %>
+    </div>
+    <%= render 'layouts/toasts' %>
   </body>
 </html>
