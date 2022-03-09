@@ -8,6 +8,9 @@ class UsersController < ApplicationController
     @users = User.all.order(:created_at)
   end
 
+  def pending
+    @users = User.all.order(:created_at).where(approved: false)
+  end
   def show
     #
   end

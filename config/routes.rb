@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post '/sell/:id', to: 'transactions#sell', as: 'sell'
 
   get '/users', to: 'users#index', as: 'users'
+  get '/pending', to: 'users#pending', as: 'pending'
   get '/users/new', to: 'users#new', as: 'new_user'
   get '/users/:id', to: 'users#show', as: 'user'
   get '/users/:id/edit', to: 'users#edit', as: 'edit_user'
