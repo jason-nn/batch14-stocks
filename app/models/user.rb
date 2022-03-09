@@ -21,6 +21,8 @@ class User < ApplicationRecord
   end
 
   def approved_email
-    UserMailer.with(user: self).approved_email.deliver_later
+    if self.approved_previously_was == false && self.approved == true
+      UserMailer.with(user: self).approved_email.deliver_later
+    end
   end
 end

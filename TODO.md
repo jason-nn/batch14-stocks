@@ -12,4 +12,7 @@
 - [x] set up heroku domain (remove old stock app on heroku first)
 - [x] set up config/production.rb
 - [x] add email send on registration from devise (after save in user model)
+- [x] fix email bug
+- [ ] pending accounts page
 - [ ] add css
+- [ ] add css for emails
