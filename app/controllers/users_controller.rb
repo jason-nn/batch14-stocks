@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params.merge(approved: true))
 
     if @user.save
+      UserMailer.with(user: @user).approved_email.deliver_later
       redirect_to users_path, notice: 'Created new user'
     else
       render :new
