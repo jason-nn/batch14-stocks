@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   patch '/users/:id/approve', to: 'users#approve', as: 'approve_user'
 
   get '/stocks', to: 'stocks#index', as: 'stocks'
-  get '/stock/:id', to: 'stocks#show', as: 'stock'
+  get '/stocks/:id', to: 'stocks#show', as: 'stock'
   post '/stocks/create', to: 'stocks#create', as: 'create_stock'
   patch '/stocks/:id/update', to: 'stocks#update', as: 'update_stock'
 end
