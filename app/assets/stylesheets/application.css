@@ -314,6 +314,10 @@ label {
   text-align: right;
 }
 
+.align-center {
+  text-align: center;
+}
+
 .error-message {
   color: #f04438;
   text-transform: uppercase;
@@ -340,6 +344,17 @@ label {
 
 .cell-with-centered-image img {
   margin: 0 auto;
+}
+
+.flex-column-center-horizontally {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blocked-image {
+  width: 50%;
+  height: auto;
 }
 
 /* ANIMATIONS */
