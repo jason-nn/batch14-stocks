@@ -16,7 +16,7 @@
 - [x] pending accounts page
 - [x] add styled blocked page
 - [x] add empty card
-- [ ] send email to myself when new user is created
+- [x] send email to myself when new user is created
 - [ ] add styled log in and sign up
 - [ ] add styled landing page
 - [ ] add styled emails
