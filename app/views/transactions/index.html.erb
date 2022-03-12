@@ -1,38 +1,51 @@
-<table>
-  <tr>
-    <% if current_user.admin %>
-      <th>User</th>
-    <% end %>
-    <th>Action</th>
-    <th>Amount</th>
-    <th>Stock</th>
-    <th>Quantity</th>
-    <th>Price</th>
-  </tr>
-  <% @transactions.each do |transaction| %>
-    <tr>
-      <% if current_user.admin %>
-        <td>
-          <%= "#{transaction.user.email}" %>
-        </td>
-      <% end %>
-      <td>
-        <%= transaction.action %>
-      </td>
-      <td>
-        <%= number_to_currency transaction.amount %>
-      </td>
-      <td>
-        <% if transaction.stock_id %>
-          <%= Stock.find(transaction.stock_id).symbol %>
+<div class='centered-body'>
+  <div class='header'>Transactions</div>
+  <div class='card'>
+    <div>
+      <table>
+        <tr>
+          <% if current_user.admin %>
+            <th>User</th>
+          <% end %>
+          <th>Action</th>
+          <th>Amount</th>
+          <th>Stock</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+        <% @transactions.each do |transaction| %>
+          <tr>
+            <% if current_user.admin %>
+              <td>
+                <%= "#{transaction.user.email}" %>
+              </td>
+            <% end %>
+            <td>
+              <%= transaction.action.capitalize %>
+            </td>
+            <% if transaction.amount > 0 %>
+              <td class='green'>
+                <%= number_to_currency(transaction.amount, format: '%u %n') %>
+              </td>
+            <% else %>
+              <td class='red'>
+                <%= number_to_currency(transaction.amount * -1, format: '%u %n') %>
+              </td>
+            <% end %>
+            <td>
+              <% if transaction.stock_id %>
+                <%= Stock.find(transaction.stock_id).symbol %>
+              <% end %>
+            </td>
+            <td>
+              <%= transaction.quantity.to_i == transaction.quantity ? transaction.quantity.to_i : transaction.quantity %>
+            </td>
+            <td>
+              <%= number_to_currency(transaction.price, format: '%u %n') %>
+            </td>
+          </div>
         <% end %>
-      </td>
-      <td>
-        <%= transaction.quantity %>
-      </td>
-      <td>
-        <%= number_to_currency transaction.price %>
-      </td>
+      </table>
     </div>
-  <% end %>
-</table>
+  </div>
+</div>
