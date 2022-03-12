@@ -17,7 +17,7 @@
           <tr>
             <% if current_user.admin %>
               <td>
-                <%= "#{transaction.user.email}" %>
+                <%= "#{transaction.user.first_name} #{transaction.user.last_name}" %>
               </td>
             <% end %>
             <td>
