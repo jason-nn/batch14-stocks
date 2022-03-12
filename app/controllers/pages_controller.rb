@@ -18,10 +18,12 @@ class PagesController < ApplicationController
 
   def portfolio
     #
+    @selected = 'portfolio'
   end
 
   def account
     #
+    @selected = 'account'
   end
 
   def blocked

@@ -11,10 +11,12 @@ class TransactionsController < ApplicationController
     else
       @transactions = Transaction.where(user_id: current_user.id)
     end
+    @selected = 'transactions'
   end
 
   def cashin
     @transaction = current_user.transactions.new
+    @selected = 'account'
   end
 
   def cashin_post

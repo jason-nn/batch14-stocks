@@ -6,17 +6,22 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all.order(:created_at)
+    @selected = 'users'
   end
 
   def pending
     @users = User.all.order(:created_at).where(approved: false)
+    @selected = 'pending'
   end
+
   def show
     #
+    @selected = 'users'
   end
 
   def new
     @user = User.new
+    @selected = 'users'
   end
 
   def create
@@ -32,6 +37,7 @@ class UsersController < ApplicationController
 
   def edit
     #
+    @selected = 'users'
   end
 
   def update

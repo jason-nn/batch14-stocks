@@ -14,6 +14,26 @@
  *= require_self
  */
 
+@font-face {
+  font-family: CircularStd-Black;
+  src: url(CircularStd-Black.otf);
+}
+
+@font-face {
+  font-family: CircularStd-Bold;
+  src: url(CircularStd-Bold.otf);
+}
+
+@font-face {
+  font-family: CircularStd-Book;
+  src: url(CircularStd-Book.otf);
+}
+
+@font-face {
+  font-family: CircularStd-Medium;
+  src: url(CircularStd-Medium.otf);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -29,30 +49,65 @@ a {
 
 .navbar {
   width: 100vw;
-  height: 70px;
-
+  height: 60px;
   background-color: white;
 
   position: fixed;
   top: 0;
   left: 0;
 
+  padding: 0px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 60px;
-  z-index: 1;
 }
 
 .navleft {
   display: flex;
+  align-items: baseline;
+  gap: 30px;
+}
+
+.logo {
+  font-family: CircularStd-Black;
+  font-size: 30px;
+  color: #fdb022;
+}
+
+.navlinks {
+  display: flex;
+  gap: 30px;
+}
+
+.navlinks a {
+  font-family: CircularStd-Bold;
+  font-size: 15px;
+  color: black;
+}
+
+.navlinks .selected {
+  color: #fdb022;
 }
 
 .body {
   width: 100vw;
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 60px);
+  background-color: #f8fafc;
 
-  background-color: #f9fafb;
+  margin-top: 60px;
 
-  margin-top: 70px;
+  padding: 30px 0px;
+}
+
+.button-secondary {
+  padding: 5px 15px;
+  background-color: white;
+
+  border-radius: 100px;
+  border: 1px solid #fdb022;
+
+  color: #fdb022;
+  font-family: CircularStd-Bold;
+
+  cursor: pointer;
 }

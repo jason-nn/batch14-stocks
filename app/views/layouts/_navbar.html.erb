@@ -1,25 +1,25 @@
 <div class='navbar'>
   <div class='navleft'>
     <div class='logo'>
-      <%= link_to 'logo', root_path %>
+      <%= link_to 'banana', root_path %>
     </div>
     <div class='navlinks'>
       <% if user_signed_in? %>
         <% if current_user.admin %>
-          <%= link_to 'Users', users_path %>
-          <%= link_to 'Pending', pending_path %>
+          <%= link_to 'Users', users_path, class: @selected == 'users' ? 'selected' : nil %>
+          <%= link_to 'Pending', pending_path, class: @selected == 'pending' ? 'selected' : nil %>
         <% else %>
-          <%= link_to 'Stocks', stocks_path %>
-          <%= link_to 'Portfolio', portfolio_path %>
-          <%= link_to 'Account', account_path %>
+          <%= link_to 'Stocks', stocks_path, class: @selected == 'stocks' ? 'selected' : nil %>
+          <%= link_to 'Portfolio', portfolio_path, class: @selected == 'portfolio' ? 'selected' : nil %>
+          <%= link_to 'Account', account_path, class: @selected == 'account' ? 'selected' : nil %>
         <% end %>
-        <%= link_to 'Transactions', transactions_path %>
+        <%= link_to 'Transactions', transactions_path, class: @selected == 'transactions' ? 'selected' : nil %>
       <% end %>
     </div>
   </div>
   <div class='navright'>
     <% if user_signed_in? %>
-      <%= button_to 'Log out', destroy_user_session_path, method: :delete %>
+      <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'button-secondary' %>
     <% end %>
   </div>
 </div>
