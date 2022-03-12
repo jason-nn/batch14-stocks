@@ -325,6 +325,11 @@ label {
   color: #f04438;
 }
 
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
 /* ANIMATIONS */
 /* ANIMATIONS */
 /* ANIMATIONS */
