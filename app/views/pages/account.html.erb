@@ -1,3 +1,16 @@
-Balance: <%= number_to_currency @balance %>
-<br>
-<%= link_to 'Add funds', cashin_path %>
+<div class='centered-body'>
+  <div class='header'>
+    <%= "#{current_user.first_name} #{current_user.last_name}" %>
+  </div>
+  <div class='card flex-column-20px-gap'>
+    <div class='flex-column-5px-gap'>
+      <div class='gray-capitalized'>Current Balance</div>
+      <div class='xl'>
+        <%= number_to_currency(@balance, format: '%u %n') %>
+      </div>
+    </div>
+    <div>
+      <%= link_to 'Add funds', cashin_path, class: 'button-primary' %>
+    </div>
+  </div>
+</div>

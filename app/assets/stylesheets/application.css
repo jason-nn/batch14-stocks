@@ -191,6 +191,11 @@ a {
   font-size: 30px;
 }
 
+.large {
+  font-family: CircularStd-Bold;
+  font-size: 18px;
+}
+
 .card {
   background-color: white;
   border-radius: 16px;
@@ -304,6 +309,10 @@ label {
   font-size: 12px;
   color: #a3a3a3;
   text-transform: uppercase;
+}
+
+.align-right {
+  text-align: right;
 }
 
 /* ANIMATIONS */
