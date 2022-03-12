@@ -14,6 +14,10 @@
 - [x] add email send on registration from devise (after save in user model)
 - [x] fix email bug
 - [x] pending accounts page
-- [ ] add css
-- [ ] add css for emails
+- [x] add styled blocked page
+- [x] add empty card
+- [ ] send email to myself when new user is created
+- [ ] add styled log in and sign up
+- [ ] add styled landing page
+- [ ] add styled emails
 - [ ] add price update every 30 minutes

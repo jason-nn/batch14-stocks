@@ -1,27 +1,31 @@
 <div class='centered-body'>
   <div class='header'>Pending</div>
-  <div class='card'>
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th class='centered-cell'>Approve</th>
-      </tr>
-      <% @users.all.each do |user| %>
+  <% if @users.length > 0 %>
+    <div class='card'>
+      <table>
         <tr>
-          <td>
-            <%= "#{user.first_name} #{user.last_name}" %>
-          </td>
-          <td>
-            <%= user.email %>
-          </td>
-          <td class='cell-with-centered-image'>
-            <%= link_to approve_user_path(user), method: 'patch' do %>
-              <%= image_tag('approve.svg') %>
-            <% end %>
-          </td>
+          <th>Name</th>
+          <th>Email</th>
+          <th class='centered-cell'>Approve</th>
         </tr>
-      <% end %>
-    </table>
-  </div>
+        <% @users.all.each do |user| %>
+          <tr>
+            <td>
+              <%= "#{user.first_name} #{user.last_name}" %>
+            </td>
+            <td>
+              <%= user.email %>
+            </td>
+            <td class='cell-with-centered-image'>
+              <%= link_to approve_user_path(user), method: 'patch' do %>
+                <%= image_tag('approve.svg') %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  <% else %>
+    <%= render 'pages/empty' %>
+  <% end %>
 </div>

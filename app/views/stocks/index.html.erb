@@ -1,31 +1,35 @@
 <div class='centered-body'>
   <div class='header'>Stocks</div>
-  <div class='card'>
-    <table>
-      <tr>
-        <th>Symbol</th>
-        <th>Price</th>
-        <th>Company</th>
-        <th class='centered-cell'>Trade</th>
-      </tr>
-      <% @stocks.each do |stock| %>
+  <% if @stocks.length > 0 %>
+    <div class='card'>
+      <table>
         <tr>
-          <td>
-            <%= stock.symbol %>
-          </td>
-          <td>
-            <%= number_to_currency(stock.price, format: '%u %n') %>
-          </td>
-          <td>
-            <%= stock.company %>
-          </td>
-          <td class='cell-with-centered-image'>
-            <%= link_to stock_path(stock) do %>
-              <%= image_tag('trade.svg') %>
-            <% end %>
-          </td>
+          <th>Symbol</th>
+          <th>Price</th>
+          <th>Company</th>
+          <th class='centered-cell'>Trade</th>
         </tr>
-      <% end %>
-    </table>
-  </div>
+        <% @stocks.each do |stock| %>
+          <tr>
+            <td>
+              <%= stock.symbol %>
+            </td>
+            <td>
+              <%= number_to_currency(stock.price, format: '%u %n') %>
+            </td>
+            <td>
+              <%= stock.company %>
+            </td>
+            <td class='cell-with-centered-image'>
+              <%= link_to stock_path(stock) do %>
+                <%= image_tag('trade.svg') %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  <% else %>
+    <%= render 'pages/empty' %>
+  <% end %>
 </div>
