@@ -24,7 +24,7 @@ class TransactionsController < ApplicationController
       current_user.transactions.new(transaction_params.merge(action: 'cash in'))
 
     if @transaction.save
-      redirect_to account_path, notice: 'Successfully cashed in'
+      redirect_to account_path, notice: 'Cashed in'
     else
       render :cashin
     end
@@ -47,7 +47,7 @@ class TransactionsController < ApplicationController
           )
 
         if @transaction.save
-          redirect_to stock_path(stock.id), notice: 'Successfully bought stock'
+          redirect_to stock_path(stock.id), notice: 'Purchased stock'
         else
           redirect_to stock_path(stock.id), alert: 'Error'
         end
@@ -76,7 +76,7 @@ class TransactionsController < ApplicationController
           )
 
         if @transaction.save
-          redirect_to stock_path(stock.id), notice: 'Successfully sold stock'
+          redirect_to stock_path(stock.id), notice: 'Sold stock'
         else
           redirect_to stock_path(stock.id), alert: 'Error'
         end

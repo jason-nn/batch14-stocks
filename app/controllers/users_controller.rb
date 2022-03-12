@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
     if @user.save
       UserMailer.with(user: @user).approved_email.deliver_later
-      redirect_to users_path, notice: 'Created new user'
+      redirect_to users_path, notice: 'Created user'
     else
       render :new
     end
