@@ -17,7 +17,9 @@ class User < ApplicationRecord
   private
 
   def welcome_email
-    UserMailer.with(user: self).welcome_email.deliver_later
+    if self.admin == false
+      UserMailer.with(user: self).welcome_email.deliver_later
+    end
   end
 
   def approved_email
