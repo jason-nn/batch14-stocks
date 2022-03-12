@@ -34,24 +34,28 @@ class TransactionsController < ApplicationController
     stock = Stock.find(params[:id])
     quantity = params[:transaction][:quantity].to_i
     amount = stock.price * quantity
-    if quantity && amount < @balance
-      @transaction =
-        current_user.transactions.new(
-          transaction_params.merge(
-            action: 'purchase',
-            stock_id: stock.id,
-            price: stock.price,
-            amount: amount * -1,
-          ),
-        )
+    if quantity > 0
+      if amount < @balance
+        @transaction =
+          current_user.transactions.new(
+            transaction_params.merge(
+              action: 'purchase',
+              stock_id: stock.id,
+              price: stock.price,
+              amount: amount * -1,
+            ),
+          )
 
-      if @transaction.save
-        redirect_to stock_path(stock.id), notice: 'Successfully bought stock'
+        if @transaction.save
+          redirect_to stock_path(stock.id), notice: 'Successfully bought stock'
+        else
+          redirect_to stock_path(stock.id), alert: 'Error'
+        end
       else
-        redirect_to stock_path(stock.id), notice: 'Error'
+        redirect_to stock_path(stock.id), alert: 'Insufficient funds'
       end
     else
-      redirect_to stock_path(stock.id), notice: 'Insufficient funds'
+      redirect_to stock_path(stock.id), alert: 'Invalid input'
     end
   end
 
@@ -59,26 +63,29 @@ class TransactionsController < ApplicationController
     stock = Stock.find(params[:id])
     quantity = params[:transaction][:quantity].to_i
     amount = stock.price * quantity
-    if quantity && @portfolio[stock.id] && @portfolio[stock.id] > quantity
-      @transaction =
-        current_user.transactions.new(
-          transaction_params.merge(
-            action: 'sale',
-            stock_id: stock.id,
-            price: stock.price,
-            amount: amount,
-          ),
-        )
+    if quantity > 0
+      if @portfolio[stock.id] && @portfolio[stock.id] > quantity
+        @transaction =
+          current_user.transactions.new(
+            transaction_params.merge(
+              action: 'sale',
+              stock_id: stock.id,
+              price: stock.price,
+              amount: amount,
+            ),
+          )
 
-      if @transaction.save
-        redirect_to stock_path(stock.id), notice: 'Successfully sold stock'
+        if @transaction.save
+          redirect_to stock_path(stock.id), notice: 'Successfully sold stock'
+        else
+          redirect_to stock_path(stock.id), alert: 'Error'
+        end
       else
-        redirect_to stock_path(stock.id), notice: 'Error'
+        redirect_to stock_path(stock.id), alert: 'Insufficient stock'
       end
     else
-      redirect_to stock_path(stock.id), notice: 'Insufficient stock'
+      redirect_to stock_path(stock.id), alert: 'Invalid input'
     end
-    #
   end
 
   private

@@ -1,38 +1,43 @@
-<h2>Price: <%= number_to_currency @stock.price %></h2>
-<h3>Buy</h3>
-<%= form_with model: current_user.transactions.new, url: buy_path(@stock.id) do |f| %>
-  <%= f.label :quantity %>
-  <br>
-  <br>
-  <%= f.number_field :quantity %>
-  <br>
-  <% current_user.transactions.new.errors.full_messages_for(:quantity).each do |message| %>
-    <div>
-      <%= message %>
-    </div>
+<div class='centered-body'>
+  <%= link_to stocks_path do %>
+    <%= image_tag('back.svg') %>
   <% end %>
-  <br>
-  <%= f.submit 'Buy stock' %>
-<% end %>
-<br>
-<br>
-<br>
-<h3>Sell</h3>
-<%= form_with model: current_user.transactions.new, url: sell_path(@stock.id) do |f| %>
-  <%= f.label :quantity %>
-  <br>
-  <br>
-  <%= f.number_field :quantity %>
-  <br>
-  <% current_user.transactions.new.errors.full_messages_for(:quantity).each do |message| %>
-    <div>
-      <%= message %>
+  <div class='card'>
+    <div class='stock-name'>
+      <%= @stock.symbol %>
     </div>
-  <% end %>
-  <br>
-  <%= f.submit 'Sell stock' %>
-<% end %>
-<br>
-<br>
-<br>
-<%= link_to 'Back', stocks_path %>
+    <div class='stock-price'>
+      <%= number_to_currency(@stock.price, format: '%u %n') %>
+    </div>
+  </div>
+  <div class='split-card'>
+    <div class='card flex-column-10px-gap'>
+      <div class='header'>Buy</div>
+      <%= form_with model: current_user.transactions.new, url: buy_path(@stock.id) do |f| %>
+        <div class='flex-column-10px-gap'>
+          <div>
+            <%= f.label :quantity %>
+            <%= f.number_field :quantity %>
+          </div>
+          <div>
+            <%= f.submit 'Buy stock', class: 'button-primary' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class='card flex-column-10px-gap'>
+      <div class='header'>Sell</div>
+      <%= form_with model: current_user.transactions.new, url: sell_path(@stock.id) do |f| %>
+        <div class='flex-column-10px-gap'>
+          <div>
+            <%= f.label :quantity %>
+            <%= f.number_field :quantity %>
+          </div>
+          <div>
+            <%= f.submit 'Sell stock', class: 'button-primary' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
