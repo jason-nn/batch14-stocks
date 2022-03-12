@@ -225,11 +225,6 @@ td {
   font-family: CircularStd-Bold;
 }
 
-.trade {
-  text-transform: uppercase;
-  color: #fdb022;
-}
-
 .split-card {
   display: flex;
   gap: 20px;

@@ -6,7 +6,7 @@
         <th>Symbol</th>
         <th>Price</th>
         <th>Company</th>
-        <th></th>
+        <th>Trade</th>
       </tr>
       <% @stocks.each do |stock| %>
         <tr>
@@ -20,7 +20,9 @@
             <%= stock.company %>
           </td>
           <td>
-            <%= link_to 'Trade', stock_path(stock), class: 'trade' %>
+            <%= link_to stock_path(stock) do %>
+              <%= image_tag('trade.svg') %>
+            <% end %>
           </td>
         </tr>
       <% end %>
