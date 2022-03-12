@@ -14,7 +14,7 @@
     <div class='card flex-column-10px-gap'>
       <div class='header'>Buy</div>
       <%= form_with model: current_user.transactions.new, url: buy_path(@stock.id) do |f| %>
-        <div class='flex-column-10px-gap'>
+        <div class='flex-column-20px-gap'>
           <div>
             <%= f.label :quantity %>
             <%= f.number_field :quantity %>
@@ -28,7 +28,7 @@
     <div class='card flex-column-10px-gap'>
       <div class='header'>Sell</div>
       <%= form_with model: current_user.transactions.new, url: sell_path(@stock.id) do |f| %>
-        <div class='flex-column-10px-gap'>
+        <div class='flex-column-20px-gap'>
           <div>
             <%= f.label :quantity %>
             <%= f.number_field :quantity %>

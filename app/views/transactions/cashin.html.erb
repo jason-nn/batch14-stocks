@@ -1,20 +1,27 @@
-<b>Add funds</b>
-<br>
-<br>
-<%= form_with model: @transaction, url: cashin_post_path do |f| %>
-  <%= f.label :amount %>
-  <br>
-  <%= f.number_field :amount %>
-  <br>
-  <% @transaction.errors.full_messages_for(:amount).each do |message| %>
-    <div>
-      <%= message %>
+<div class='centered-body'>
+  <%= link_to account_path do %>
+    <%= image_tag('back.svg') %>
+  <% end %>
+  <div class='card flex-column-10px-gap'>
+    <div class='header'>Add funds to wallet</div>
+    <%= form_with model: @transaction, url: cashin_post_path do |f| %>
+      <div class='flex-column-20px-gap'>
+        <div class='flex-column-5px-gap'>
+          <div>
+            <%= f.label :amount %>
+            <%= f.number_field :amount, step: 0.01 %>
+          </div>
+          <% @transaction.errors.full_messages_for(:amount).each do |message| %>
+            <div class='error-message'>
+              <%= message %>
+            </div>
+          <% end %>
+        </div>
+        <div>
+          <%= f.submit 'Add funds', class: 'button-primary' %>
+        </div>
+      </div>
     </div>
   <% end %>
-  <br>
-  <%= f.submit 'Add funds' %>
-<% end %>
-<br>
-<br>
-<br>
-<%= link_to 'Back', account_path %>
+</div>
+</div>

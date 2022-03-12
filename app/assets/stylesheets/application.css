@@ -315,6 +315,13 @@ label {
   text-align: right;
 }
 
+.error-message {
+  color: #f04438;
+  text-transform: uppercase;
+  font-family: CircularStd-Medium;
+  font-size: 10px;
+}
+
 /* ANIMATIONS */
 /* ANIMATIONS */
 /* ANIMATIONS */
