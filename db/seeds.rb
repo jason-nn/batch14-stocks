@@ -14,7 +14,7 @@ admin =
   User.create(
     first_name: 'Jason',
     last_name: 'Admin',
-    email: 'jason@admin.com',
+    email: 'jason@banana.com',
     password: 'password',
     admin: true,
     approved: true,
