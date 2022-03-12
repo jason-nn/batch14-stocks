@@ -1,5 +1,6 @@
-<%= render 'form', user: @user, path: create_user_path, button_text: 'Create user' %>
-<br>
-<br>
-<br>
-<%= link_to 'Back', users_path %>
+<div class='centered-body'>
+  <%= link_to users_path do %>
+    <%= image_tag('back.svg') %>
+  <% end %>
+  <%= render 'form', user: @user, path: create_user_path, button_text: 'Create user', header: 'New user' %>
+</div>
