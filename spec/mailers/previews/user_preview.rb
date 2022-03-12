@@ -7,4 +7,8 @@ class UserPreview < ActionMailer::Preview
   def approved_email
     UserMailer.with(user: User.last).approved_email
   end
+
+  def new_user_email
+    UserMailer.with(user: User.last).new_user_email
+  end
 end

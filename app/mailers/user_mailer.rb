@@ -10,4 +10,12 @@ class UserMailer < ApplicationMailer
     @user = params[:user]
     mail(to: @user.email, subject: 'Your Banana account has been approved!')
   end
+
+  def new_user_email
+    @user = params[:user]
+    mail(
+      to: 'jason.ho@obf.ateneo.edu',
+      subject: 'Your have a new user on Banana!',
+    )
+  end
 end

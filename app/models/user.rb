@@ -17,7 +17,7 @@ class User < ApplicationRecord
             }
   validates :last_name, presence: true
 
-  after_create :welcome_email
+  after_create :welcome_email, :new_user_email
   after_update :approved_email
 
   private
@@ -25,6 +25,12 @@ class User < ApplicationRecord
   def welcome_email
     if self.admin == false
       UserMailer.with(user: self).welcome_email.deliver_later
+    end
+  end
+
+  def new_user_email
+    if self.admin == false
+      UserMailer.with(user: self).new_user_email.deliver_later
     end
   end
 
