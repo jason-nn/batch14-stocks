@@ -13,6 +13,7 @@
 - [x] set up config/production.rb
 - [x] add email send on registration from devise (after save in user model)
 - [x] fix email bug
-- [ ] pending accounts page
+- [x] pending accounts page
 - [ ] add css
 - [ ] add css for emails
+- [ ] add price update every 30 minutes
