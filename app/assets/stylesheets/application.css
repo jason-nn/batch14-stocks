@@ -225,6 +225,10 @@ td {
   font-family: CircularStd-Bold;
 }
 
+.centered-cell {
+  text-align: center;
+}
+
 .split-card {
   display: flex;
   gap: 20px;
@@ -325,9 +329,17 @@ label {
   color: #f04438;
 }
 
+.gray {
+  color: #a3a3a3;
+}
+
 .flex-space-between {
   display: flex;
   justify-content: space-between;
+}
+
+.cell-with-centered-image img {
+  margin: 0 auto;
 }
 
 /* ANIMATIONS */

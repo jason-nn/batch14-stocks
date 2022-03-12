@@ -1,19 +1,60 @@
-<div>
-  First name: <%= @user.first_name %>
+<div class='centered-body'>
+  <%= link_to users_path do %>
+    <%= image_tag('back.svg') %>
+  <% end %>
+  <div class='header'>
+    <%= "#{@user.first_name} #{@user.last_name}" %>
+  </div>
+  <div class='card'>
+    <table>
+      <tr>
+        <td class='gray'>
+          First name
+        </td>
+        <td>
+          <%= @user.first_name %>
+        </td>
+      </tr>
+      <tr>
+        <td class='gray'>
+          Last name
+        </td>
+        <td>
+          <%= @user.last_name %>
+        </td>
+      </tr>
+      <tr>
+        <td class='gray'>
+          Email
+        </td>
+        <td>
+          <%= @user.email %>
+        </td>
+      </tr>
+      <tr>
+        <td class='gray'>
+          Approved
+        </td>
+        <td>
+          <% if @user.approved %>
+            <%= image_tag('yes.svg') %>
+          <% else %>
+            <%= image_tag('no.svg') %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td class='gray'>
+          Admin
+        </td>
+        <td>
+          <% if @user.admin %>
+            <%= image_tag('yes.svg') %>
+          <% else %>
+            <%= image_tag('no.svg') %>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+  </div>
 </div>
-<div>
-  Last name: <%= @user.last_name %>
-</div>
-<div>
-  Email: <%= @user.email %>
-</div>
-<div>
-  Admin: <%= @user.admin %>
-</div>
-<div>
-  Approved: <%= @user.approved %>
-</div>
-<br>
-<br>
-<br>
-<%= link_to 'Back', users_path %>

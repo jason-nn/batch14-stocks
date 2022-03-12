@@ -6,7 +6,7 @@
         <th>Symbol</th>
         <th>Price</th>
         <th>Company</th>
-        <th>Trade</th>
+        <th class='centered-cell'>Trade</th>
       </tr>
       <% @stocks.each do |stock| %>
         <tr>
@@ -19,7 +19,7 @@
           <td>
             <%= stock.company %>
           </td>
-          <td>
+          <td class='cell-with-centered-image'>
             <%= link_to stock_path(stock) do %>
               <%= image_tag('trade.svg') %>
             <% end %>

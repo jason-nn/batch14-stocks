@@ -8,9 +8,9 @@
       <tr>
         <th>Name</th>
         <th>Email</th>
-        <th>Approved</th>
-        <th>Show</th>
-        <th>Edit</th>
+        <th class='centered-cell'>Approved</th>
+        <th class='centered-cell'>Show</th>
+        <th class='centered-cell'>Edit</th>
       </tr>
       <% @users.all.each do |user| %>
         <tr>
@@ -20,19 +20,19 @@
           <td>
             <%= user.email %>
           </td>
-          <td>
+          <td class='cell-with-centered-image'>
             <% if user.approved %>
               <%= image_tag('yes.svg') %>
             <% else %>
               <%= image_tag('no.svg') %>
             <% end %>
           </td>
-          <td>
+          <td class='cell-with-centered-image'>
             <%= link_to user_path(user) do %>
               <%= image_tag('show.svg') %>
             <% end %>
           </td>
-          <td>
+          <td class='cell-with-centered-image'>
             <%= link_to edit_user_path(user) do %>
               <%= image_tag('edit.svg') %>
             <% end %>
