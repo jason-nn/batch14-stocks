@@ -1,20 +1,38 @@
-<table>
-  <tr>
-    <th>
-      Stock
-    </th>
-    <th>
-      Quantity
-    </th>
-  </tr>
-  <% @portfolio.keys.each do |key| %>
-    <tr>
-      <td>
-        <%= Stock.find(key).symbol %>
-      </td>
-      <td>
-        <%= @portfolio[key] %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<% total_value = 0 %>
+<div class='centered-body'>
+  <div class='header'>Portfolio</div>
+  <div class='card'>
+    <table>
+      <tr>
+        <th>Stock</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Value</th>
+      </tr>
+      <% @portfolio.keys.each do |key| %>
+        <% stock = Stock.find(key) %>
+        <tr>
+          <td>
+            <%= stock.symbol %>
+          </td>
+          <td>
+            <%= @portfolio[key].to_i == @portfolio[key] ? @portfolio[key].to_i : @portfolio[key] %>
+          </td>
+          <td>
+            <%= number_to_currency(stock.price, format: '%u %n') %>
+          </td>
+          <td>
+            <%= number_to_currency(stock.price * @portfolio[key], format: '%u %n') %>
+            <% total_value += stock.price * @portfolio[key] %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class='card flex-column-5px-gap'>
+    <div class='gray-capitalized'>Total Value</div>
+    <div class='xl'>
+      <%= number_to_currency(total_value, format: '%u %n') %>
+    </div>
+  </div>
+</div>
