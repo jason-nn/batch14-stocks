@@ -43,13 +43,13 @@ img {
 }
 
 input:-webkit-autofill {
-  box-shadow: 0 0 0 50px white inset;
-  -webkit-box-shadow: 0 0 0 50px white inset;
+  box-shadow: 0 0 0 50px #f8fafc inset;
+  -webkit-box-shadow: 0 0 0 50px #f8fafc inset;
 }
 
 input:-webkit-autofill:focus {
-  box-shadow: 0 0 0 50px white inset;
-  -webkit-box-shadow: 0 0 0 50px white inset;
+  box-shadow: 0 0 0 50px #f8fafc inset;
+  -webkit-box-shadow: 0 0 0 50px #f8fafc inset;
 }
 
 * {
@@ -337,6 +337,10 @@ label {
   color: #a3a3a3;
 }
 
+.banana {
+  color: #fdb022;
+}
+
 .flex-space-between {
   display: flex;
   justify-content: space-between;
@@ -355,6 +359,65 @@ label {
 .doodle {
   width: 50%;
   height: auto;
+}
+
+.fullscreen-split-2 {
+  background-color: #f8fafc;
+  width: 100vw;
+  height: 100vh;
+
+  display: grid;
+  grid-template-columns: 6fr 4fr;
+  grid-template-rows: auto;
+
+  overflow: hidden;
+}
+
+.fullscreen-right {
+  background-color: white;
+  padding: 60px 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 70px;
+
+  overflow: scroll;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.fullscreen-right::-webkit-scrollbar {
+  display: none;
+}
+
+.logo-xl {
+  font-family: CircularStd-Black;
+  font-size: 60px;
+  color: #fdb022;
+
+  width: 60%;
+}
+
+.devise-form {
+  width: 60%;
+}
+
+.devise-footer {
+  font-family: CircularStd-Bold;
+  font-size: 18px;
+}
+
+.fullscreen-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fullscreen-left img {
+  height: 50%;
+  width: auto;
 }
 
 /* ANIMATIONS */

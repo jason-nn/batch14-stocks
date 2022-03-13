@@ -1,45 +1,80 @@
-<h2>Sign up</h2>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="field">
-    <div>
-      <%= f.label :email %>
-    </div>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class='fullscreen-split-2'>
+  <div class='fullscreen-left'>
+    <%= image_tag('doodle-44.svg') %>
   </div>
-  <div class="field">
-    <div>
-      <%= f.label :first_name %>
-    </div>
-    <%= f.text_field :first_name, autocomplete: "first-name" %>
-  </div>
-  <div class="field">
-    <div>
-      <%= f.label :last_name %>
-    </div>
-    <%= f.text_field :last_name, autocomplete: "last-name" %>
-  </div>
-  <div class="field">
-    <div>
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
+  <div class='fullscreen-right'>
+    <div class='logo-xl'>banana</div>
+    <div class='devise-form'>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <div class='flex-column-20px-gap'>
+          <div class='header'>Sign up</div>
+          <div class='flex-column-5px-gap'>
+            <div>
+              <%= f.label :email %>
+              <%= f.email_field :email, autofocus: true %>
+            </div>
+            <% resource.errors.full_messages_for(:email).each do |message| %>
+              <div class='error-message'>
+                <%= message %>
+              </div>
+            <% end %>
+          </div>
+          <div class='flex-column-5px-gap'>
+            <div>
+              <%= f.label :first_name %>
+              <%= f.text_field :first_name %>
+            </div>
+            <% resource.errors.full_messages_for(:first_name).each do |message| %>
+              <div class='error-message'>
+                <%= message %>
+              </div>
+            <% end %>
+          </div>
+          <div class='flex-column-5px-gap'>
+            <div>
+              <%= f.label :last_name %>
+              <%= f.text_field :last_name %>
+            </div>
+            <% resource.errors.full_messages_for(:last_name).each do |message| %>
+              <div class='error-message'>
+                <%= message %>
+              </div>
+            <% end %>
+          </div>
+          <div class='flex-column-5px-gap'>
+            <div>
+              <%= f.label :password %>
+            </div>
+            <%= f.password_field :password %>
+            <% resource.errors.full_messages_for(:password).each do |message| %>
+              <div class='error-message'>
+                <%= message %>
+              </div>
+            <% end %>
+          </div>
+          <div class='flex-column-5px-gap'>
+            <div>
+              <%= f.label :password_confirmation %>
+              <%= f.password_field :password_confirmation %>
+            </div>
+            <% resource.errors.full_messages_for(:password_confirmation).each do |message| %>
+              <div class='error-message'>
+                <%= message %>
+              </div>
+            <% end %>
+          </div>
+          <div>
+            <%= f.submit 'Sign up', class: 'button-primary' %>
+          </div>
+        </div>
       <% end %>
     </div>
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-  <div class="field">
-    <div>
-      <%= f.label :password_confirmation %>
+    <div class='devise-footer'>
+      <span>Already have an account?</span>
+      <span class='banana'>
+        <%= link_to 'Sign in here', new_session_path(resource_name) %>
+      </span>
     </div>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <br>
   </div>
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-<%= render "devise/shared/links" %>
-<br>
-<br>
-<br>
-<%= link_to 'Home', root_path %>
+</div>

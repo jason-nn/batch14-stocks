@@ -10,10 +10,14 @@
     <%= favicon_link_tag asset_path('favicon.svg') %>
   </head>
   <body>
-    <%= render 'layouts/navbar' %>
-    <div class='body'>
+    <% if user_signed_in? %>
+      <%= render 'layouts/navbar' %>
+      <div class='body'>
+        <%= yield %>
+      </div>
+    <% else %>
       <%= yield %>
-    </div>
+    <% end %>
     <%= render 'layouts/toasts' %>
   </body>
 </html>
