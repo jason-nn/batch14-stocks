@@ -3,9 +3,22 @@
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
-  <body>
-    <h1>You have a new user, Jason!</h1>
-    <p><%= "#{@user.first_name} #{@user.last_name} just joined Banana" %></p>
-    <p>Approve their account <a href='https://bananabyjason.herokuapp.com'>here</a></p>
+  <body style='background-color: #f8fafc; padding: 30px;'>
+    <br>
+    <br>
+    <br>
+    <div style='background-color: white; border-radius: 16px; padding: 30px; box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 1px; width: 50%; margin: 0 auto;'>
+      <%= image_tag('doodle-97.svg', style: 'width: 50%; height: auto; margin: 0 auto; display: block;') %>
+      <p style='width: 100%; text-align: center; font-family: CircularStd-Bold; font-size: 25px;'>
+        You have a new user!
+      </p>
+      <p style='width: 100%; text-align: center; font-family: CircularStd-Bold; font-size: 18px;'>
+        <%= "#{@user.first_name} #{@user.last_name} just joined Banana" %>
+      </p>
+      <br>
+      <a href='https://bananabyjason.herokuapp.com'>
+        <button style='padding: 10px 15px; background-color: #fdb022; border-radius: 8px; border: 1px solid #fdb022; color: white; font-family: CircularStd-Bold; font-size: 18px; width: 100%; cursor: pointer;'>Approve their account</button>
+      </a>
+    </div>
   </body>
 </html>
