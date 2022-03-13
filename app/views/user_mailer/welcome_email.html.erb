@@ -3,9 +3,18 @@
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
-  <body>
-    <h1>Welcome to Banana, <%= "#{@user.first_name}!" %></h1>
-    <p>Your account hasn't been approved yet, but we'll let you know once it's ready</p>
-    <p>Thanks for joining and have a great day!</p>
+  <body style='background-color: #f8fafc; padding: 30px;'>
+    <br>
+    <br>
+    <br>
+    <div style='background-color: white; border-radius: 16px; padding: 30px; box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 1px; width: 50%; margin: 0 auto;'>
+      <%= image_tag('doodle-135.svg', style: 'width: 50%; height: auto; margin: 0 auto; display: block;') %>
+      <p style='width: 100%; text-align: center; font-family: CircularStd-Bold; font-size: 25px;'>
+        Welcome to Banana, <%= "#{@user.first_name}!" %>
+      </p>
+      <p style='width: 100%; text-align: center; font-family: CircularStd-Bold; font-size: 18px;'>
+        Your account hasn't been approved yet, but we'll let you know once it's ready
+      </p>
+    </div>
   </body>
 </html>
