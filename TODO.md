@@ -21,6 +21,6 @@
 - [x] fix email images
 - [x] add styled log in and sign up
 - [x] add autofocus to forms
-- [ ] add backup fonts
+- [x] add backup fonts
 - [ ] add styled landing page
 - [ ] add price update every 30 minutes
