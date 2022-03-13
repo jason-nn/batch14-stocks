@@ -17,10 +17,15 @@ class User < ApplicationRecord
             }
   validates :last_name, presence: true
 
-  after_create :welcome_email, :new_user_email
+  after_create :after_create
   after_update :approved_email
 
   private
+
+  def after_create
+    welcome_email
+    new_user_email
+  end
 
   def welcome_email
     if self.admin == false

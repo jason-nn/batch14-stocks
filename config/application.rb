@@ -10,7 +10,6 @@ module Batch14Stocks
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
-    config.asset_host = 'https://bananabyjason.herokuapp.com/'
 
     # Configuration for the application, engines, and railties goes here.
     #

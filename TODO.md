@@ -18,7 +18,7 @@
 - [x] add empty card
 - [x] send email to myself when new user is created
 - [x] add styled emails
-- [ ] fix email images
+- [x] fix email images
 - [ ] add styled log in and sign up
 - [ ] add styled landing page
 - [ ] add price update every 30 minutes
