@@ -9,7 +9,7 @@
         <div class='flex-column-5px-gap'>
           <div>
             <%= f.label :amount %>
-            <%= f.number_field :amount, step: 0.01 %>
+            <%= f.number_field :amount, step: 0.01, autofocus: true %>
           </div>
           <% @transaction.errors.full_messages_for(:amount).each do |message| %>
             <div class='error-message'>

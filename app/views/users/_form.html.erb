@@ -7,7 +7,7 @@
       <div class='flex-column-5px-gap'>
         <div>
           <%= f.label :email %>
-          <%= f.email_field :email %>
+          <%= f.email_field :email, autofocus: true %>
         </div>
         <% @user.errors.full_messages_for(:email).each do |message| %>
           <div class='error-message'>

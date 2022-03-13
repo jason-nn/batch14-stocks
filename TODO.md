@@ -19,6 +19,8 @@
 - [x] send email to myself when new user is created
 - [x] add styled emails
 - [x] fix email images
-- [ ] add styled log in and sign up
+- [x] add styled log in and sign up
+- [x] add autofocus to forms
+- [ ] add backup fonts
 - [ ] add styled landing page
 - [ ] add price update every 30 minutes
