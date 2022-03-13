@@ -17,7 +17,8 @@
 - [x] add styled blocked page
 - [x] add empty card
 - [x] send email to myself when new user is created
+- [x] add styled emails
+- [ ] fix email images
 - [ ] add styled log in and sign up
 - [ ] add styled landing page
-- [ ] add styled emails
 - [ ] add price update every 30 minutes
