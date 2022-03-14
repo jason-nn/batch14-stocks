@@ -364,6 +364,8 @@ label {
 .doodle {
   width: 50%;
   height: auto;
+
+  animation: wobble 2s infinite;
 }
 
 .fullscreen-split-2 {
