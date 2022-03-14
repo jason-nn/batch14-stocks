@@ -364,7 +364,9 @@ label {
 .doodle {
   width: 50%;
   height: auto;
+}
 
+.wobble {
   animation: wobble 2s infinite;
 }
 
