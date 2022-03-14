@@ -1,5 +1,15 @@
-<%= render 'layouts/navbar' %>
-<div class='body'>
-  <div class='padding-horizontal-60px'>
+<div class='landing-outer-container'>
+  <div class='landing-inner-container'>
+    <%= image_tag('doodle-21.svg', class: 'landing-doodle landing-doodle-21') %>
+    <%= image_tag('doodle-44.svg', class: 'landing-doodle landing-doodle-44') %>
+    <%= image_tag('doodle-72.svg', class: 'landing-doodle landing-doodle-72') %>
+    <%= image_tag('doodle-97.svg', class: 'landing-doodle landing-doodle-97') %>
+    <%= image_tag('doodle-122.svg', class: 'landing-doodle landing-doodle-122') %>
+    <%= image_tag('doodle-135.svg', class: 'landing-doodle landing-doodle-135') %>
+    <div class='landing-content-container'>
+      <p class='landing-header'>banana</p>
+      <p class='landing-subheader'>Ready to Trade?</p>
+      <%= button_to 'Sign in', user_session_path, class: 'button-primary button-enlarge' %>
+    </div>
   </div>
 </div>

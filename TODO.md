@@ -22,5 +22,5 @@
 - [x] add styled log in and sign up
 - [x] add autofocus to forms
 - [x] add backup fonts
-- [ ] add styled landing page
+- [x] add styled landing page
 - [ ] add price update every 30 minutes
