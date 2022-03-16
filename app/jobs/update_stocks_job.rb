@@ -23,6 +23,6 @@ class UpdateStocksJob < ApplicationJob
       end
     end
 
-    self.class.set(wait: 30.minutes).perform_later
+    self.class.set(wait: 1.hour).perform_later
   end
 end
