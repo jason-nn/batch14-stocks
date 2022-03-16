@@ -23,4 +23,4 @@
 - [x] add autofocus to forms
 - [x] add backup fonts
 - [x] add styled landing page
-- [ ] add price update every 30 minutes
+- [x] add price update every 1 hour
