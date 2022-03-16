@@ -6,6 +6,7 @@
         <tr>
           <th>Symbol</th>
           <th>Price</th>
+          <th>Change</th>
           <th>Company</th>
           <th class='centered-cell'>Trade</th>
         </tr>
@@ -15,7 +16,26 @@
               <%= stock.symbol %>
             </td>
             <td>
-              <%= number_to_currency(stock.price, format: '%u %n') %>
+              <% if stock.change_percent > 0 %>
+                <div class='green'>
+                  <%= number_to_currency(stock.price, format: '%u %n') %>
+                </div>
+              <% else %>
+                <div class='red'>
+                  <%= number_to_currency(stock.price, format: '%u %n') %>
+                </div>
+              <% end %>
+            </td>
+            <td>
+              <% if stock.change_percent > 0 %>
+                <div class='green'>
+                  <%= "+ #{(stock.change_percent * 100).round(2)}%" %>
+                </div>
+              <% else %>
+                <div class='red'>
+                  <%= "- #{(stock.change_percent * 100 * -1).round(2)}%" %>
+                </div>
+              <% end %>
             </td>
             <td>
               <%= stock.company %>

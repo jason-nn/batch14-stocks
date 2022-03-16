@@ -37,5 +37,6 @@ stocks.each do |stock|
     symbol: stock.symbol,
     price: stock.latest_price,
     company: stock.company_name,
+    change_percent: stock.change_percent,
   )
 end

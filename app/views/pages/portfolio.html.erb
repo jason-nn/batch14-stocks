@@ -8,6 +8,7 @@
           <th>Stock</th>
           <th>Quantity</th>
           <th>Price</th>
+          <th>Change</th>
           <th>Value</th>
         </tr>
         <% @portfolio.keys.each do |key| %>
@@ -20,7 +21,26 @@
               <%= @portfolio[key].to_i == @portfolio[key] ? @portfolio[key].to_i : @portfolio[key] %>
             </td>
             <td>
-              <%= number_to_currency(stock.price, format: '%u %n') %>
+              <% if stock.change_percent > 0 %>
+                <div class='green'>
+                  <%= number_to_currency(stock.price, format: '%u %n') %>
+                </div>
+              <% else %>
+                <div class='red'>
+                  <%= number_to_currency(stock.price, format: '%u %n') %>
+                </div>
+              <% end %>
+            </td>
+            <td>
+              <% if stock.change_percent > 0 %>
+                <div class='green'>
+                  <%= "+ #{(stock.change_percent * 100).round(2)}%" %>
+                </div>
+              <% else %>
+                <div class='red'>
+                  <%= "- #{(stock.change_percent * 100 * -1).round(2)}%" %>
+                </div>
+              <% end %>
             </td>
             <td>
               <%= number_to_currency(stock.price * @portfolio[key], format: '%u %n') %>

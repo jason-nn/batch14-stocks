@@ -253,6 +253,11 @@ td {
   font-family: CircularStd-Bold, Helvetica, sans-serif;
 }
 
+.stock-change-percent {
+  font-size: 15px;
+  font-family: CircularStd-Bold, Helvetica, sans-serif;
+}
+
 .flex-column-5px-gap {
   display: flex;
   flex-direction: column;
