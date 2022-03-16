@@ -18,5 +18,9 @@ module Batch14Stocks
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    if defined?(Rails::Server)
+      config.after_initialize { UpdateStocksJob.perform_later }
+    end
   end
 end
