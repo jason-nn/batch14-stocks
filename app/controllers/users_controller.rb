@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_action :approved_only
 
   def index
-    @users = User.all.order(:created_at)
+    @users = User.all.order(created_at: :desc)
     @selected = 'users'
   end
 
