@@ -18,8 +18,8 @@ class UpdateStocksJob < ApplicationJob
           change_percent: stock.change_percent,
         )
       else
-        db_stock.price = stock.latest_price
-        db_stock.change_percent = stock.change_percent
+        db_stock.update(price: stock.latest_price)
+        db_stock.update(change_percent: stock.change_percent)
       end
     end
 
