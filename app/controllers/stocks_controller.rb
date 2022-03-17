@@ -2,7 +2,7 @@ class StocksController < ApplicationController
   before_action :approved_only
 
   def index
-    @stocks = Stock.all
+    @stocks = Stock.all.order(:symbol)
     @selected = 'stocks'
   end
 
