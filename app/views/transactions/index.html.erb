@@ -23,13 +23,13 @@
             <td>
               <%= transaction.action.capitalize %>
             </td>
-            <% if transaction.amount > 0 %>
+            <% if transaction.amount >= 0 %>
               <td class='green'>
                 <%= number_to_currency(transaction.amount, format: '%u %n') %>
               </td>
             <% else %>
               <td class='red'>
-                <%= number_to_currency(transaction.amount * -1, format: '%u %n') %>
+                <%= number_to_currency(transaction.amount.abs, format: '%u %n') %>
               </td>
             <% end %>
             <td>

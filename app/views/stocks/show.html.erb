@@ -7,7 +7,7 @@
       <%= @stock.symbol %>
     </div>
     <div class='stock-price'>
-      <% if @stock.change_percent > 0 %>
+      <% if @stock.change_percent >= 0 %>
         <div class='green'>
           <%= number_to_currency(@stock.price, format: '%u %n') %>
         </div>
@@ -18,13 +18,13 @@
       <% end %>
     </div>
     <div class='stock-change-percent'>
-      <% if @stock.change_percent > 0 %>
+      <% if @stock.change_percent >= 0 %>
         <div class='green'>
           <%= "+ #{(@stock.change_percent * 100).round(2)}%" %>
         </div>
       <% else %>
         <div class='red'>
-          <%= "- #{(@stock.change_percent * 100 * -1).round(2)}%" %>
+          <%= "- #{(@stock.change_percent * 100).abs.round(2)}%" %>
         </div>
       <% end %>
     </div>
